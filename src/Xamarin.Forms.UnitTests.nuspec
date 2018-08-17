@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>Xamarin.Forms.UnitTests</id>
+    <version>3.1.0.697729</version>
+    <title>Xamarin Forms UnitTests</title>
+    <authors>USolutionIT</authors>
+    <owners>USolutionIT</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <projectUrl>https://github.com/usolutionsit/Xamarin.Forms.UnitTests</projectUrl>
+    <description>Add Xamarin.Form Debug for using in test project</description>
+    <tags>xamarin forms xamarinforms xamarin.forms testing test debug</tags>
+    <dependencies>
+      <dependency id="Xamarin.Forms" version="[3.1.0.697729]" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="build\netstandard1.0\Xamarin.Forms.UnitTests.targets" target="build\netstandard1.0\Xamarin.Forms.UnitTests.targets" />
+    <file src="build\netstandard2.0\Xamarin.Forms.UnitTests.targets" target="build\netstandard2.0\Xamarin.Forms.UnitTests.targets" />
+    <file src="content\BaseTestFixture.cs.pp" target="content\BaseTestFixture.cs.pp" />
+    <file src="content\MockPlatformServices.cs" target="content\MockPlatformServices.cs" />
+  </files>
+</package>

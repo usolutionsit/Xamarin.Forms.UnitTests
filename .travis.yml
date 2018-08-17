@@ -1,0 +1,30 @@
+language: csharp
+
+script:
+  - nuget pack ./src/Xamarin.Forms.UnitTests.nuspec -Verbosity detailed
+
+before_deploy:
+  - export RELEASE_FILE=$(ls Xamarin.Forms.UnitTests.*.nupkg)
+  - export PRERELEASE=$(if [$TRAVIS_BRANCH == release]; then  echo false; else echo true; if)
+
+
+deploy:
+  - provider: releases
+    skip_cleanup: true
+    prerelease: ${PRERELEASE}
+    api_key:
+     secure: $GITAPIKEY
+    file_glob: true
+    file: "${RELEASE_FILE}"
+    on:
+     tags: true
+     repo: $GITREPOSITORY
+  - provider: script
+    skip_cleanup: true
+    script: "nuget push $RELEASE_FILE -Verbosity detailed -ApiKey $NUGETAPIKEY -Source $NUGETSOURCE"
+    on:
+     tags: true
+     branch: release
+
+notifications:
+  email: false
